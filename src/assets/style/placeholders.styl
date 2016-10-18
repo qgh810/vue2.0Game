@@ -1,0 +1,23 @@
+// ==================================================
+// 占位符
+// ==================================================
+
+// 清除浮动
+// 用法：
+// clearfix()
+// ------------------------------
+$clearfix
+  &:before
+  &:after
+    display table
+    content ""
+    line-height 0
+  &:after
+    clear both
+
+// 小三角核心类
+// ------------------------------
+$triangle-core
+  size 0 0
+  font-size 0
+  overflow hidden

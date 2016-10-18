@@ -16,7 +16,8 @@
 // }
 const routes = [
   { path: '/', component: require('./views/index.vue') },
-  { path: '/index', component: require('./views/index.vue') }
+  { path: '/index', component: require('./views/index.vue') },
+  { path: '/game', component: require('./views/game.vue') }
 ]
 
 export default (VueRouter) => {

@@ -1,0 +1,176 @@
+// ==================================================
+// 工具
+// ==================================================
+
+// 清除浮动
+// ------------------------------
+clearfix()
+  @extend $clearfix
+
+// 文本溢出
+// @param 容器宽度
+// ------------------------------
+text-overflow(width = 100%)
+  width width
+  overflow hidden
+  word-wrap normal
+  white-space nowrap
+  text-overflow ellipsis
+
+// 文本隐藏
+// ------------------------------
+hide-text()
+  overflow hidden
+  white-space normal
+  text-indent -9999px
+
+// 列表重置
+// ------------------------------
+reset-list()
+  list-style none
+  margin 0
+  padding 0
+
+// 小三角
+// @param 颜色
+// @param 尺寸
+// @param 方向
+// ------------------------------
+triangle(color = #000, size = 10px, direction = down)
+  @extend $triangle-core
+  border-width (size/2)
+
+  if direction is up
+    border-style dashed dashed solid
+    border-color transparent transparent color
+  else if direction is right
+    border-style dashed dashed dashed solid
+    border-color transparent transparent transparent color
+  else if direction is down
+    border-style solid dashed dashed
+    border-color color transparent transparent
+  else if direction is left
+    border-style dashed solid dashed dashed
+    border-color transparent color transparent transparent
+  else if direction is up-left
+    border-style solid dashed dashed solid
+    border-color color transparent transparent color
+  else if direction is up-right
+    border-style solid solid dashed dashed
+    border-color color color transparent transparent
+  else if direction is down-left
+    border-style dashed dashed solid solid
+    border-color transparent transparent color color
+  else
+    border-style dashed solid solid dashed
+    border-color transparent color color transparent
+
+/*
+ * Size utility.
+ *
+ * Synopsis:
+ *
+ *   size: <width> <height> | <width & height>
+ *
+ * Examples:
+ *
+ *     size: 100% 30px
+ *       yields:
+ *         width: 100%
+ *         height: 30px
+ *
+ *     size: 5px
+ *       yields:
+ *         width: 5px
+ *         height: 5px
+ *
+ */
+
+size()
+  if length(arguments) == 1
+    width: arguments[0]
+    height: arguments[0]
+  else
+    width: arguments[0]
+    height: arguments[1]
+
+// helper
+
+-pos(type, args)
+  i = 0
+  position: unquote(type)
+  for j in (1..4)
+    if length(args) > i
+      {args[i]}: args[i + 1] is a 'unit' ? args[i += 1] : 0
+    i += 1
+
+/*
+ * Position utility.
+ *
+ * Synopsis:
+ *
+ *   fixed: <pos> [n] <pos> [n]
+ *
+ * Examples:
+ *
+ *     fixed: top left
+ *     fixed: top 5px left
+ *     fixed: top left 5px
+ *     fixed: top 5px left 5px
+ *
+ */
+
+fixed()
+  -pos('fixed', arguments)
+
+/*
+ * Position utility.
+ *
+ * Synopsis:
+ *
+ *   absolute: <pos> [n] <pos> [n]
+ *
+ * Examples:
+ *
+ *     absolute: top left
+ *     absolute: top 5px left
+ *     absolute: top left 5px
+ *     absolute: top 5px left 5px
+ *
+ */
+
+absolute()
+  -pos('absolute', arguments)
+
+/*
+ * Position utility.
+ *
+ * Synopsis:
+ *
+ *   relative: <pos> [n] <pos> [n]
+ *
+ * Examples:
+ *
+ *     relative: top left
+ *     relative: top 5px left
+ *     relative: top left 5px
+ *     relative: top 5px left 5px
+ *
+ */
+
+relative()
+  -pos('relative', arguments)
+
+
+// rem换算
+rem(n)
+  unit(n / 75, 'rem')
+
+font-dpr(font-size)
+  font-size font-size
+
+  [data-dpr="2"] &
+    font-size font-size * 2
+
+  [data-dpr="3"] &
+    font-size font-size * 3

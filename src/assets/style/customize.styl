@@ -1,0 +1,79 @@
+// ==================================================
+// 定制
+// ==================================================
+
+html
+body
+  size 100%
+  overflow hidden
+  -webkit-touch-callout none
+  user-select none
+html
+  font-size 20px
+
+if responsive
+  // 响应式设置
+  @media only screen and (max-device-height:480px)
+    html
+      font-size 20px
+
+  @media only screen and (min-device-width:360px) and (max-device-width:375px)
+    html
+      font-size unit(375 / 16, 'px')
+
+  @media only screen and (min-device-width:412px) and (-webkit-min-device-pixel-ratio: 3)
+    html
+      font-size unit(412 / 16, 'px')
+
+body
+  margin 0
+  color font-color
+  line-height default-line-height
+  background-color #FFF
+  -webkit-font-smoothing antialiased
+  -webkit-tap-highlight-color rgba(0,0,0,0)
+
+// 超链接
+// ------------------------------
+a
+a:visited
+  color link-color
+  text-decoration none
+
+// 斜体与着重
+// ------------------------------
+i
+em
+  font-style normal
+
+// 列表
+// ------------------------------
+ul
+ol
+  reset-list()
+
+li
+  line-height 1.5
+
+// 表单元素
+// ------------------------------
+
+// 移除input和textarea元素默认的聚焦样式
+input:focus
+textarea:focus
+  outline none
+
+// 去除 iOS 输入框默认圆角和阴影
+input[type="text"]
+input[type="password"]
+input[type="number"]
+textarea
+  appearance none
+  border-radius 0
+
+// 去除数字输入框后面的小尾巴
+input[type="number"]::-webkit-inner-spin-button
+input[type="number"]::-webkit-outer-spin-button
+  appearance none
+  margin 0
+  height auto

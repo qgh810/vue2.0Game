@@ -1,0 +1,38 @@
+// ==================================================
+// 助手类
+// ==================================================
+
+// 隐藏/显示元素
+.hidden
+  display none !important
+.show
+  display block !important
+
+// 不可见
+.invisible
+  visibility hidden
+
+// 清除浮动
+.clearfix
+  clearfix()
+
+// 文本隐藏
+.hide-text
+  hide-text()
+
+//测试按钮
+.test
+  position fixed
+  left 0
+  bottom 0
+  &:after
+    display block
+    content "测试按钮"
+    background red
+    color #fff
+    font-dpr 32px
+
+
+//ios滚动bug 让页面滚动流畅
+.iosScrollBug
+  -webkit-overflow-scrolling touch

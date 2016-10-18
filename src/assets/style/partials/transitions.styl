@@ -1,0 +1,95 @@
+/* 页面切换 */
+.view
+  transition opacity .3s ease, transform .3s ease
+
+.view-enter,
+.view-leave
+  opacity 0
+  transform translate3d(rem(10), 0, 0)
+
+// 渐近过渡
+.staggered-transition
+  transition opacity .5s ease, height .5s ease, transform .5s ease
+  margin 0
+
+.staggered-enter
+.staggered-leave
+  opacity 0
+  height 0
+  transform translate3d(0, rem(10), 0)
+
+// 从右到左渐渐出现
+.rightToLeft-transition
+  transition opacity .3s ease, height .3s ease, transform .3s ease
+  opacity 1
+  transform translate3d(0,0,0)
+
+.rightToLeft-enter
+.rightToLeft-leave
+  opacity 0
+  transform translate3d(0.3rem,0, 0)
+
+// 从底部出现
+.formBottom-transition
+  // transition opacity .3s ease, transform .3s ease
+  transition opacity .3s ease, transform cubic-bezier(0.175, 0.885, 0.4700, 1.5) 0.3s
+  opacity 1
+  transform translate3d(0, 0, 0)
+
+.formBottom-enter
+.formBottom-leave
+  opacity 0
+  transform translate3d(0, 100%, 0)
+
+// 从顶部出现
+.formTop-transition
+  transition opacity .3s ease, height .3s ease, transform .3s ease
+  opacity 1
+  transform translate3d(0, 0, 0)
+
+.formTop-enter
+.formTop-leave
+  opacity 0
+  transform translate3d(0, -100%, 0)
+
+// 下往上渐现
+.bottom-to-top-transition
+  transition opacity .3s ease, height .3s ease, transform .3s ease
+  opacity 1
+  transform translate3d(0, 0, 0)
+
+.bottom-to-top-enter
+.bottom-to-top-leave
+  opacity 0
+  transform translate3d(0, 1%, 0)
+
+// scale渐现
+.scale-transition
+  transition opacity .3s ease, transform .3s ease
+  opacity 1
+  transform scale(1)
+
+.scale-enter
+.scale-leave
+  opacity 0
+  transform scale(1.15)
+
+// modal
+.modal-transition
+  transition opacity .2s ease, transform .2s ease
+  opacity 1
+  transform scale(1)
+
+.modal-enter
+.modal-leave
+  opacity 0
+  transform scale(1.25)
+
+// opacity
+.opacity-transition
+  transition opacity .5s ease
+  opacity 1
+
+.opacity-enter
+.opacity-leave
+  opacity 0
