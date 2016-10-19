@@ -31,8 +31,8 @@
               您的分数是{{mark}}
             </p>
             <p v-show="mark > 80">哇,你好厉害啊!</p>
-            <p v-show="mark > 20 && mark < 80">你是不是傻!</p>
-            <p v-show="mark < 20">你是不是傻!</p>
+            <p v-show="mark < 80">哟哟哟不错哦!</p>
+            <!-- <p v-show="mark < 20">你是不是傻!</p> -->
           </div>
           <div class="btn-group">
             <button class="btn" @touchend="leaveGame">不玩了</button>
