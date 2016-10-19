@@ -15,7 +15,7 @@
 //   })
 // }
 const routes = [
-  { path: '/', component: require('./views/index.vue') },
+  { path: '/', redirect: '/index' },
   { path: '/index', component: require('./views/index.vue') },
   { path: '/game', component: require('./views/game.vue') }
 ]
