@@ -6,10 +6,6 @@ import configRouter from './config-router.js'
 Vue.config.debug = true
 
 // 定义路由
-// var router = new VueRouter({
-//   routes
-// })
-
 let router = configRouter(VueRouter)
 Vue.use(VueRouter)
 // 初始化app
