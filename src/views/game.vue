@@ -4,9 +4,9 @@
       <div class="time">
         <span>剩余时间:{{allTime}}</span>
       </div>
-      <div class="mark-box">
+      <!-- <div class="mark-box">
         <span>当前分数: {{mark}}</span>
-      </div>
+      </div> -->
     </div>
     <table class="table">
       <tr v-for="row in rows">
@@ -27,11 +27,12 @@
             <p class="title">
               游戏结束
             </p>
-            <p class="mark-number">
-              您的分数是{{mark}}
+            <p>
+              本轮得分
             </p>
-            <p v-show="mark > 80">哇,你好厉害啊!</p>
-            <p v-show="mark < 80">哟哟哟不错哦!</p>
+            <p class="mark-number">{{mark}}</p>
+            <!-- <p v-show="mark > 80">哇,你好厉害啊!</p>
+            <p v-show="mark < 80">哟哟哟不错哦!</p> -->
             <!-- <p v-show="mark < 20">你是不是傻!</p> -->
           </div>
           <div class="btn-group">
@@ -41,6 +42,7 @@
         </div>
       </div>
     </transition>
+    <audio id="music" src="static/1.wav" controls="true" hidden="false"></audio>
   </div>
 </template>
 
@@ -56,6 +58,7 @@ export default {
       // 游戏中
       gaming: false,
       showModal: false,
+      playVoide: true,
       rows: [
         {
           blackIndex: 3
@@ -78,8 +81,21 @@ export default {
   },
   mounted () {
     this.resetData()
+    // this.play()
   },
   methods: {
+    play () {
+      if (!this.audio) {
+        this.audio = document.getElementById('music')
+      }
+      var audio = this.audio
+      audio.playbackRate = 4
+      if (!audio.ended) {
+        audio.currentTime = 0
+      }
+      // audio.stop()
+      audio.play()
+    },
     // 开始游戏
     startGame () {
       this.gaming = true
@@ -118,6 +134,9 @@ export default {
       if (this.rows.indexOf(row) !== this.rows.length - 1) return
       if (!this.gaming) {
         this.startGame()
+      }
+      if (this.playVoide) {
+        this.play()
       }
       this.mark += 1
       this.lastTouchIndex = selectedIndex
@@ -220,6 +239,11 @@ export default {
         font-size 0.6rem
         padding 0.5rem 1rem
         box-sizing border-box
+      .title
+        font-size 0.5rem
+        color #999
+      .mark-number
+        color red
       .btn-group
         width 100%
         height 1.4rem
