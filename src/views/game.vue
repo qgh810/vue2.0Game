@@ -9,10 +9,10 @@
       </div> -->
     </div>
     <table class="table">
-      <tr v-for="(row, rowIndex) in rows" :key="rowIndex">
-        <td v-for="(n, numIndex) in 3" :key="numIndex">
+      <tr v-for="row in rows">
+        <td v-for="n in 3">
           <div class="box">
-            <div class="black-box" v-show="n === row.blackIndex" @touchend="next(row, n)">{{rowIndex}}-{{numIndex}}</div>
+            <div class="black-box" v-show="n === row.blackIndex" @touchend="next(row, n)"></div>
             <div class="white-box" v-show="n !== row.blackIndex" @touchend="over(row, n)"></div>
           </div>
         </td>
